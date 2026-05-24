@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hiba Bellafkih | Software Engineer & Applied AI Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <meta name="description"
+    content="Portfolio of Hiba Bellafkih — Software Engineer at Oracle Payments, Applied AI Researcher, and PhD student in Artificial Intelligence." />
+  <style>
+    :root {
+      --bg: #fbf6ef;
+      --card: #fffdf8;
+      --text: #2d211b;
+      --muted: #77675d;
+      --line: #eadfce;
+      --soft: #f5eadb;
+      --accent: #7a4f3f;
+      --accent-2: #8b6f47;
+      --sage: #7f8f74;
+      --rose: #c58c85;
+      --cream: #fff8ee;
+      --shadow: 0 20px 50px rgba(74, 48, 35, .09);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box }
+
+    html { scroll-behavior: smooth }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(197, 140, 133, .22), transparent 30rem),
+        radial-gradient(circle at 85% 8%, rgba(127, 143, 116, .22), transparent 28rem),
+        linear-gradient(180deg, #fbf6ef 0%, #fffdf8 44%, #f4eadf 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .32;
+      background-image:
+        linear-gradient(rgba(122, 79, 63, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(122, 79, 63, .025) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(251, 246, 239, .82);
+      border-bottom: 1px solid rgba(234, 223, 206, .85)
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0
+    }
+
+    .brand {
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 900;
+      letter-spacing: -.03em;
+      font-size: 20px;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 650
+    }
+
+    .nav-links a {
+      padding: 6px 9px;
+      border-radius: 999px;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      background: rgba(255, 253, 248, .75);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 36px;
+      align-items: center;
+      padding: 74px 0 42px
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 15px;
+      border: 1px solid rgba(234, 223, 206, .95);
+      background: rgba(255, 253, 248, .75);
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 750;
+      box-shadow: 0 8px 25px rgba(74, 48, 35, .045)
+    }
+
+    h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(46px, 7vw, 78px);
+      line-height: .96;
+      margin: 18px 0 14px;
+      letter-spacing: -.055em;
+      color: #2a1d17;
+    }
+
+    .subtitle {
+      font-size: clamp(20px, 2vw, 28px);
+      color: var(--accent);
+      font-weight: 800;
+      margin: 0 0 18px
+    }
+
+    .summary {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 18px;
+      margin: 0
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 16px;
+      border-radius: 18px;
+      font-weight: 800;
+      border: 1px solid var(--line);
+      background: rgba(255, 253, 248, .9);
+      color: var(--text);
+      box-shadow: 0 8px 20px rgba(74, 48, 35, .05);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), #9d6a55);
+      color: #fff;
+      border-color: rgba(122, 79, 63, .5)
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(74, 48, 35, .13);
+      background: #fffdf8;
+    }
+
+    .side-card,
+    .card {
+      background: rgba(255, 253, 248, .88);
+      border: 1px solid rgba(234, 223, 206, .92);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow)
+    }
+
+    .side-card {
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .side-card::after {
+      content: "";
+      position: absolute;
+      right: -56px;
+      top: -56px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(197, 140, 133, .16);
+    }
+
+    .side-card .label {
+      color: var(--accent-2);
+      font-size: 12px;
+      font-weight: 850;
+      margin: 18px 0 4px;
+      text-transform: uppercase;
+      letter-spacing: .09em
+    }
+
+    .side-card p {
+      margin: 0;
+      font-weight: 750
+    }
+
+    .section {
+      padding: 42px 0
+    }
+
+    .section-head {
+      margin-bottom: 22px
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 34px;
+      line-height: 1.1;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      margin: 0;
+      color: #2a1d17;
+    }
+
+    .section-title span {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent), var(--sage));
+      color: #fff;
+      font-size: 20px
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 780px;
+      margin: 10px 0 0
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 26px
+    }
+
+    .mini-card {
+      padding: 22px;
+      min-height: 190px
+    }
+
+    .mini-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #f7eadf, #e8eadc);
+      font-size: 22px;
+      margin-bottom: 16px
+    }
+
+    .mini-card h3,
+    .card h3 {
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -.02em;
+      color: #2a1d17;
+    }
+
+    .mini-card p,
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px
+    }
+
+    .card {
+      padding: 24px;
+      box-shadow: 0 8px 28px rgba(74, 48, 35, .055);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(74, 48, 35, .10);
+      border-color: rgba(197, 140, 133, .45);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start
+    }
+
+    .company {
+      color: var(--accent);
+      margin-top: 2px;
+      font-weight: 750
+    }
+
+    .period {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 800;
+      white-space: nowrap
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 6px 10px;
+      border: 1px solid rgba(234, 223, 206, .95);
+      background: rgba(255, 248, 238, .82);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent)
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px
+    }
+
+    .project-type {
+      color: var(--accent-2);
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: .08em;
+      margin-bottom: 10px
+    }
+
+    .status {
+      color: var(--accent) !important;
+      font-weight: 850;
+      margin-top: 14px
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start
+    }
+
+    .skills-grid {
+      display: grid;
+      gap: 12px
+    }
+
+    .compact-card {
+      padding: 18px
+    }
+
+    .compact-card h3 {
+      font-size: 16px
+    }
+
+    footer {
+      padding: 34px 0 46px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeIn .7s ease forwards
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+
+    .mini-icon svg,
+    .section-title span svg {
+      width: 21px;
+      height: 21px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .mini-icon svg {
+      color: #7a4f3f;
+      opacity: .88;
+    }
+
+    .section-title span svg {
+      color: #7a4f3f;
+    }
+
+    .section-title span {
+      background: linear-gradient(135deg, #fff4ea, #edf1e2) !important;
+      color: #7a4f3f !important;
+      border: 1px solid rgba(234, 223, 206, .95);
+      box-shadow: 0 8px 18px rgba(74, 48, 35, .06);
+    }
+
+    .mini-icon {
+      background: linear-gradient(135deg, #fff4ea, #edf1e2) !important;
+      border: 1px solid rgba(234, 223, 206, .95);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.75), 0 8px 18px rgba(74,48,35,.04);
+    }
+
+
+    .soft-svg {
+      width: 21px;
+      height: 21px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.65;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      color: #7a4f3f;
+      opacity: .9;
+    }
+
+    .section-title span {
+      background: linear-gradient(135deg, #fff4ea, #edf1e2) !important;
+      color: #7a4f3f !important;
+      border: 1px solid rgba(234, 223, 206, .95);
+      box-shadow: 0 8px 18px rgba(74, 48, 35, .06);
+    }
+
+    .mini-icon {
+      background: linear-gradient(135deg, #fff4ea, #edf1e2) !important;
+      border: 1px solid rgba(234, 223, 206, .95);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.75), 0 8px 18px rgba(74,48,35,.04);
+    }
+
+    @media(max-width:900px) {
+      .hero,
+      .two-col {
+        grid-template-columns: 1fr
+      }
+
+      .highlight-grid,
+      .project-grid {
+        grid-template-columns: 1fr
+      }
+
+      .nav-links {
+        display: none
+      }
+
+      .card-top {
+        flex-direction: column
+      }
+
+      .period {
+        white-space: normal
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav><a class="brand" href="#top">Hiba Bellafkih</a>
+        <div class="nav-links"><a href="#experience">Experience</a><a href="#projects">Projects</a><a
+            href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a></div>
+      </nav>
+    </div>
+  </header>
+  <main id="top">
+    <section class="container hero">
+      <div class="fade-in">
+        <div class="badge">Enterprise Software · Applied AI · LLM Research</div>
+        <h1>Hiba Bellafkih</h1>
+        <p class="subtitle">Software Engineer · Applied AI Researcher</p>
+        <p class="summary">Software engineer at Oracle Payments with experience in Oracle APEX, SQL/PLSQL, transactional
+          payment systems, production debugging, multilingual infrastructure, and applied LLM research. PhD researcher
+          in AI focused on context-aware form completion, RAG, NLP, LLM evaluation, and user-centered automation.</p>
+        <div class="buttons"><a class="btn primary" href="mailto:hiba.bellafkih@um5r.ac.ma">✉ Contact</a><a class="btn"
+            href="https://www.linkedin.com/in/hiba-bellafkih-320009259/" target="_blank" rel="noreferrer">LinkedIn
+            ↗</a><a class="btn" href="https://github.com/hiba280" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+      <aside class="side-card fade-in" style="animation-delay:.08s">
+        <div class="label">Location</div>
+        <p>Salé, Morocco</p>
+        <div class="label">Current focus</div>
+        <p>Enterprise AI integration, LLM systems, multilingual products, and reliable data workflows.</p>
+        <div class="label">Publication</div>
+        <p>EchoFill — ICBDAIA 2025, Springer LNNS</p>
+        <div class="label">Languages</div>
+        <p>Arabic · English · French · German learning</p>
+      </aside>
+    </section>
+    <section class="container section">
+      <div class="highlight-grid">
+        <article class="card mini-card">
+          <div class="mini-icon"><svg class="soft-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V5.8A1.8 1.8 0 0 1 6.8 4h10.4A1.8 1.8 0 0 1 19 5.8V20"/><path d="M3.5 20h17"/><path d="M8 8h2"/><path d="M14 8h2"/><path d="M8 12h2"/><path d="M14 12h2"/><path d="M10 20v-4h4v4"/></svg></div>
+          <h3>Enterprise Engineering</h3>
+          <p>Oracle Payments experience across APEX applications, SQL/PLSQL packages, production incidents, reporting,
+            transactional data, and payment workflows.</p>
+        </article>
+        <article class="card mini-card">
+          <div class="mini-icon"><svg class="soft-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4.5a3 3 0 0 0-3 3c0 .4.1.8.2 1.1A3.8 3.8 0 0 0 4 12a3.7 3.7 0 0 0 2.2 3.4A3.2 3.2 0 0 0 9.5 20c1.6 0 2.5-1 2.5-2.5v-10A3 3 0 0 0 9 4.5Z"/><path d="M15 4.5a3 3 0 0 1 3 3c0 .4-.1.8-.2 1.1A3.8 3.8 0 0 1 20 12a3.7 3.7 0 0 1-2.2 3.4A3.2 3.2 0 0 1 14.5 20c-1.6 0-2.5-1-2.5-2.5"/><path d="M8 10.5c1 .1 2-.3 2.7-1"/><path d="M16 10.5c-1 .1-2-.3-2.7-1"/><path d="M8.2 15.3c.9.2 1.8 0 2.5-.7"/><path d="M15.8 15.3c-.9.2-1.8 0-2.5-.7"/></svg></div>
+          <h3>Applied AI & LLMs</h3>
+          <p>Worked on GPT-4 based intelligent form pre-filling at Oracle NetSuite and currently researching LLM-based
+            form automation.</p>
+        </article>
+        <article class="card mini-card">
+          <div class="mini-icon"><svg class="soft-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h9"/><path d="M8.5 3v2"/><path d="M10.5 5c-.6 3.5-2.5 6.2-5.5 8"/><path d="M6.5 8.5c1 1.8 2.4 3.1 4.5 4"/><path d="M13 20l4-9 4 9"/><path d="M14.5 17h5"/></svg></div>
+          <h3>Multilingual Systems</h3>
+          <p>Led the introduction of multilingual support in Oracle Payments applications, including workflow design, UI
+            string tracking, and frontend/backend compatibility.</p>
+        </article>
+        <article class="card mini-card">
+          <div class="mini-icon"><svg class="soft-svg" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></div>
+          <h3>Data & Reliability</h3>
+          <p>Experience validating transactional data, debugging inconsistencies, preparing AI datasets, and improving
+            application reliability.</p>
+        </article>
+      </div>
+    </section>
+    <section class="container section" id="experience">
+      <div class="section-head">
+        <h2 class="section-title"><span><svg class="soft-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7V6a3 3 0 0 1 3-3h0a3 3 0 0 1 3 3v1"/><path d="M5.5 7.5h13A2.5 2.5 0 0 1 21 10v7.5A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5V10a2.5 2.5 0 0 1 2.5-2.5Z"/><path d="M3 12.5h18"/><path d="M10 12.5v1h4v-1"/></svg></span>Experience</h2>
+        <p class="section-subtitle">Enterprise software engineering, payment systems, applied AI research, and data
+          visualization.</p>
+      </div>
+      <div class="timeline">
+        <article class="card">
+          <div class="card-top">
+            <div>
+              <h3>Software Engineer — Oracle Payments</h3>
+              <div class="company">Oracle</div>
+            </div>
+            <div class="period">Aug 2024 — Present</div>
+          </div>
+          <div class="tags"><span class="tag">Oracle APEX</span><span class="tag">SQL</span><span
+              class="tag">PL/SQL</span><span class="tag">Payments</span><span class="tag">Localization</span></div>
+          <ul>
+            <li>Develop and evolve PL/SQL packages, procedures, and Oracle APEX source queries supporting payment
+              operations and reporting.</li>
+            <li>Build dashboards for financial transaction flows such as payouts, refunds, chargebacks, and
+              cancellations.</li>
+            <li>Investigate production incidents involving frontend APEX components, backend packages, and transactional
+              data inconsistencies.</li>
+            <li>Led the introduction of multilingual support across applications, including translation workflow, UI
+              string tracking, and localization release preparation.</li>
+            <li>Mentor interns, lead KT sessions, participate in PR reviews, and contribute to security office hours.
+            </li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-top">
+            <div>
+              <h3>AI Research Assistant — NetSuite Cloud Ops</h3>
+              <div class="company">Oracle</div>
+            </div>
+            <div class="period">Feb 2024 — Aug 2024</div>
+          </div>
+          <div class="tags"><span class="tag">GPT-4</span><span class="tag">OpenAI API</span><span
+              class="tag">SuiteScript</span><span class="tag">Prompt Engineering</span></div>
+          <ul>
+            <li>Designed an intelligent form pre-filling prototype based on LLMs and GPT-4.</li>
+            <li>Experimented with prompt engineering to improve consistency, precision, and robustness of generated
+              outputs.</li>
+            <li>Automated user workflows using SuiteScript 2.1 and integrated OpenAI API with error handling and
+              fallback logic.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card-top">
+            <div>
+              <h3>Data Scientist — GIS Data Management Application</h3>
+              <div class="company">Veolia REDAL</div>
+            </div>
+            <div class="period">Aug 2023 — Nov 2023</div>
+          </div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Plotly</span><span
+              class="tag">Dash</span><span class="tag">GIS</span><span class="tag">Data Visualization</span></div>
+          <ul>
+            <li>Used prepared geospatial data to support network analysis and user-oriented decision-making.</li>
+            <li>Developed interactive dashboards with Plotly and Dash to visualize geospatial data and network
+              anomalies.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+    <section class="container section" id="projects">
+      <div class="section-head">
+        <h2 class="section-title"><span><svg class="soft-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l1.4 4.1a2 2 0 0 0 1.2 1.2l4.1 1.4-4.1 1.4a2 2 0 0 0-1.2 1.2L12 16.9l-1.4-4.1a2 2 0 0 0-1.2-1.2l-4.1-1.4 4.1-1.4a2 2 0 0 0 1.2-1.2L12 3.5Z"/><path d="M19 15.5l.7 1.9 1.8.6-1.8.6-.7 1.9-.6-1.9-1.9-.6 1.9-.6.6-1.9Z"/><path d="M5.5 16.5l.5 1.3 1.3.4-1.3.5-.5 1.3-.4-1.3-1.3-.5 1.3-.4.4-1.3Z"/></svg></span>Selected Projects</h2>
+        <p class="section-subtitle">A mix of enterprise initiatives, research work, and applied AI concepts.</p>
+      </div>
+      <div class="project-grid">
+        <article class="card">
+          <div class="project-type">PhD / Publication</div>
+          <h3>EchoFill — Context-Aware Form Completion Assistant</h3>
+          <p>Research project focused on LLM-based automated form completion, contextual understanding, entity
+            extraction, intent recognition, and evaluation of model reliability.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">LLMs</span><span
+              class="tag">RAG</span><span class="tag">NLP</span><span class="tag">Evaluation</span></div>
+          <p class="status">Published at ICBDAIA 2025 — Springer LNNS</p>
+        </article>
+        <article class="card">
+          <div class="project-type">Oracle NetSuite Research</div>
+          <h3>AI-Assisted NetSuite Form Pre-Filling</h3>
+          <p>Prototype integrating GPT-4 and OpenAI API to suggest form values and reduce manual entry through prompt
+            engineering and workflow automation.</p>
+          <div class="tags"><span class="tag">GPT-4</span><span class="tag">OpenAI API</span><span
+              class="tag">SuiteScript 2.1</span><span class="tag">JavaScript</span></div>
+          <p class="status">Research prototype</p>
+        </article>
+        <article class="card">
+          <div class="project-type">Agentic AI Exploration</div>
+          <h3>APEX Seed Data Assistant Concept</h3>
+          <p>Exploratory developer-productivity assistant designed to inspect APEX report source queries, identify
+            related tables and dependencies, and help generate ordered seed scripts for local testing.</p>
+          <div class="tags"><span class="tag">LLMs</span><span class="tag">Tool Calling</span><span
+              class="tag">SQL</span><span class="tag">Oracle APEX</span><span class="tag">Agentic Workflows</span></div>
+          <p class="status">Exploratory prototype</p>
+        </article>
+        <article class="card">
+          <div class="project-type">Enterprise Engineering</div>
+          <h3>Oracle Payments Multilingual Enablement</h3>
+          <p>Led the introduction of multilingual support in Oracle Payments applications, including frontend/backend
+            refactoring, translation workflow design, UI string tracking, and release coordination.</p>
+          <div class="tags"><span class="tag">Oracle APEX</span><span class="tag">PL/SQL</span><span
+              class="tag">Localization</span><span class="tag">Frontend</span><span class="tag">Backend</span></div>
+          <p class="status">Enterprise feature initiative</p>
+        </article>
+      </div>
+    </section>
+    <section class="container section two-col" id="skills">
+      <div>
+        <div class="section-head">
+          <h2 class="section-title"><span><svg class="soft-svg" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="2"/><rect x="13" y="4" width="7" height="7" rx="2"/><rect x="4" y="13" width="7" height="7" rx="2"/><path d="M15.5 13.5h2.9a1.6 1.6 0 0 1 1.6 1.6v2.8a1.6 1.6 0 0 1-1.6 1.6h-2.8a1.6 1.6 0 0 1-1.6-1.6V15"/></svg></span>Skills</h2>
+        </div>
+        <div class="skills-grid">
+          <article class="card compact-card">
+            <h3>Backend & Enterprise</h3>
+            <div class="tags"><span class="tag">Oracle APEX</span><span class="tag">SQL</span><span
+                class="tag">PL/SQL</span><span class="tag">REST APIs</span><span class="tag">Production
+                Debugging</span><span class="tag">Reporting</span></div>
+          </article>
+          <article class="card compact-card">
+            <h3>AI & LLMs</h3>
+            <div class="tags"><span class="tag">LLMs</span><span class="tag">RAG</span><span class="tag">NLP</span><span
+                class="tag">Prompt Engineering</span><span class="tag">Model Evaluation</span><span
+                class="tag">Embeddings</span></div>
+          </article>
+          <article class="card compact-card">
+            <h3>Data</h3>
+            <div class="tags"><span class="tag">Pandas</span><span class="tag">NumPy</span><span
+                class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Data Cleaning</span><span
+                class="tag">Data Validation</span></div>
+          </article>
+          <article class="card compact-card">
+            <h3>Engineering Tools</h3>
+            <div class="tags"><span class="tag">Git</span><span class="tag">Docker</span><span
+                class="tag">CI/CD</span><span class="tag">OCI</span><span class="tag">Linux</span></div>
+          </article>
+          <article class="card compact-card">
+            <h3>Academic / Project Exposure</h3>
+            <div class="tags"><span class="tag">Apache Spark</span><span class="tag">Kafka</span><span
+                class="tag">ETL</span><span class="tag">Scala</span><span class="tag">C/C++</span></div>
+          </article>
+        </div>
+      </div>
+      <div id="education">
+        <div class="section-head">
+          <h2 class="section-title"><span><svg class="soft-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8.5 12 4l9 4.5-9 4.5L3 8.5Z"/><path d="M7 11v4.2c0 1.7 2.2 3.1 5 3.1s5-1.4 5-3.1V11"/><path d="M21 8.5v5"/></svg></span>Education</h2>
+        </div>
+        <div class="skills-grid">
+          <article class="card compact-card">
+            <div class="card-top">
+              <div>
+                <h3>PhD in Artificial Intelligence — In Progress</h3>
+                <p>ENSAM Rabat / Mohammed V University</p>
+              </div>
+              <div class="period">2024 — Present</div>
+            </div>
+          </article>
+          <article class="card compact-card">
+            <div class="card-top">
+              <div>
+                <h3>Engineering Degree in AI & Data Science</h3>
+                <p>ENSAM Rabat</p>
+              </div>
+              <div class="period">2021 — 2024</div>
+            </div>
+          </article>
+          <article class="card compact-card">
+            <div class="card-top">
+              <div>
+                <h3>DUT in Software Engineering</h3>
+                <p>ESTS Salé</p>
+              </div>
+              <div class="period">2019 — 2021</div>
+            </div>
+          </article>
+          <article class="card compact-card">
+            <h3>Awards</h3>
+            <ul>
+              <li>Finalist — CITX.0 2024</li>
+              <li>Finalist — Orange MEGA Hackathon 2023</li>
+              <li>2nd Place — ICSIF 2023</li>
+              <li>4th Place — National DigiGirlz Program 2023</li>
+            </ul>
+          </article>
+          <article class="card compact-card">
+            <h3>Training</h3>
+            <p>Internal Oracle Learning trainings in application security, OWASP Top 10, secure coding, OCI security,
+              OCI fundamentals, dependency management, communication, feedback, and collaboration.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="contact">
+    <div class="container">
+      <p>Built as a static portfolio for GitHub Pages · © <span id="year"></span> Hiba Bellafkih</p>
+    </div>
+  </footer>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+
+</html>
